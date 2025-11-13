@@ -18,8 +18,8 @@ $DBDEF=array(
 'user'=>$_ENV['AZURE_MYSQL_USERNAME'],#required
 'pwd'=>$_ENV['AZURE_MYSQL_PASSWORD'], #required
 #optional:
-'db'=>"",  #default DB
-'host'=>"",
+'db'=>$_ENV['AZURE_MYSQL_DBNAME'],  #default DB
+'host'=>$_ENV['AZURE_MYSQL_HOST'],
 'port'=>"",
 'socket'=>"",
 'chset'=>"utf8mb4",#optional, default charset
@@ -1332,4 +1332,5 @@ function isTrusted() {
   $trstd=['127.0.0.1','::1']; #do not require ACCESS_PWD for local
   if (in_array($_SERVER['REMOTE_ADDR'], $trstd)) return true;
   return false;
+
 }
